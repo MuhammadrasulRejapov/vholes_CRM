@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}- {{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Product Details</h1>
+    <div>
+        <a href="{% url 'product-list' %}" class="btn btn-outline-secondary me-2">
+            <i class="fas fa-arrow-left me-1"></i> Back to Products
+        </a>
+        <a href="{% url 'product-update' product.id %}" class="btn btn-warning me-2">
+            <i class="fas fa-edit me-1"></i> Edit
+        </a>
+        <a href="{% url 'product-delete' product.id %}" class="btn btn-danger">
+            <i class="fas fa-trash me-1"></i> Delete
+        </a>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid product-detail-img">
+            </div>
+            <div class="col-md-8">
+                <h2>{{ product.name }}</h2>
+                <div class="mb-3">
+                    <span class="badge bg-primary">{{ product.category.name }}</span>
+                    {% if product.is_in_stock %}
+                        <span class="badge bg-success">In Stock</span>
+                    {% else %}
+                        <span class="badge bg-danger">Out of Stock</span>
+                    {% endif %}
+                </div>
+                <h3 class="text-primary">${{ product.price }}</h3>
+                <div class="mb-3">
+                    <h5>Stock Quantity:</h5>
+                    <p>
+                        {% if product.stock_quantity < 10 %}
+                        <span class="text-danger">{{ product.stock_quantity }} (Low Stock)</span>
+                        {% else %}
+                        <span>{{ product.stock_quantity }}</span>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="mb-3">
+                    <h5>Description:</h5>
+                    <p>{{ product.description }}</p>
+                </div>
+                <div class="mb-3">
+                    <h5>Added on:</h5>
+                    <p>{{ product.created_at|date:"F d, Y" }}</p>
+                </div>
+                <div class="mb-3">
+                    <h5>Last Updated:</h5>
+                    <p>{{ product.updated_at|date:"F d, Y" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
