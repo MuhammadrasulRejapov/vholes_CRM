@@ -8,10 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fashion-dashboard-secret-key-example'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['wholesale-crm.onrender.com', 'localhost', 'render.com', '.onrender.com']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
