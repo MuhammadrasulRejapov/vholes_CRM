@@ -33,7 +33,7 @@ __pycache__/
 *.pyo
 *.pyd
 
-# SQLite database (uncomment if you don't want to track DB)
+# SQLite database
 *.sqlite3
 db.sqlite3
 
