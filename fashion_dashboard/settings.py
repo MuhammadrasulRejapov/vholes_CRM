@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-fashion-dashboard-secret-key-example'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['wholesale-crm.onrender.com', 'localhost', 'render.com', '.onrender.com']
+ALLOWED_HOSTS = ['wholesale-crm.onrender.com', 'localhost', 'render.com', '.onrender.com', '127.0.0.1', '0.0.0.0']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Application definition
 INSTALLED_APPS = [
